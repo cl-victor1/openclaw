@@ -333,8 +333,8 @@ mkdir -p ~/agents/{dev,growth,content,shared}
 {
   agents: {
     list: [
-      { id: "dev",     workspace: "~/agents/dev" },
-      { id: "growth",  workspace: "~/agents/growth" },
+      { id: "dev", workspace: "~/agents/dev" },
+      { id: "growth", workspace: "~/agents/growth" },
       { id: "content", workspace: "~/agents/content" },
     ],
   },
