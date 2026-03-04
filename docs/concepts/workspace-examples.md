@@ -287,4 +287,3 @@ Dev agent picks it up during heartbeat, creates the page, and moves it to
 - [Agent workspace](/concepts/agent-workspace) — file map and locations
 - [Multi-agent routing](/concepts/multi-agent) — configuring multiple agents
 - [Cron jobs](/automation/cron-jobs) — scheduling agent tasks
-- [Social media automation](/automation/social-media) — posting workflows
