@@ -345,7 +345,7 @@ mkdir -p ~/agents/{dev,growth,content,shared}
 
 ### ARM performance tips
 
-- **Node compile cache** (see [Startup tuning](#startup-tuning-for-small-vms-and-arm-hosts) above) matters even more with multiple agents.
+- **Node compile cache** — pre-warming the Node.js compile cache at startup matters even more with multiple agents.
 - Keep agent workspaces on the same volume to avoid cross-mount I/O overhead.
 - Monitor memory with `free -h` — each active agent session uses ~50–150 MB depending on context size.
 
