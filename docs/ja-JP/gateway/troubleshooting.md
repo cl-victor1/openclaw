@@ -5,9 +5,9 @@ read_when:
   - 正確なコマンドを含む安定した症状ベースのランブックセクションが必要な場合
 title: "トラブルシューティング"
 x-i18n:
-  generated_at: "2026-03-04T04:14:00Z"
+  generated_at: "2026-03-04T06:16:36Z"
   model: claude-opus-4-6
-  provider: pi
+  provider: anthropic
   source_hash: 2016d75d24ea86d982fa11bbe05f8506d41dd1defbef8f3cf9864664fb01ecc4
   source_path: gateway/troubleshooting.md
   workflow: 15
