@@ -5,10 +5,10 @@ read_when:
 summary: "OpenClawのVPSホスティングハブ（Oracle/Fly/Hetzner/GCP/exe.dev）"
 title: "VPSホスティング"
 x-i18n:
-  generated_at: "2026-03-04T04:14:00Z"
+  generated_at: "2026-03-04T06:16:36Z"
   model: claude-opus-4-6
-  provider: pi
-  source_hash: ""
+  provider: anthropic
+  source_hash: f318a6f719121da27565de9f9869235b77d4b5ef05b86a11be82933da579e459
   source_path: vps.md
   workflow: 15
 ---
