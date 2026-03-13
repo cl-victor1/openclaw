@@ -75,6 +75,10 @@ Optional env vars:
   flows require them (default keeps extensions disabled in sandbox browser).
 - `OPENCLAW_BROWSER_RENDERER_PROCESS_LIMIT=<N>` — set Chromium renderer process
   limit; set to `0` to skip the flag and use Chromium default behavior.
+- `OPENCLAW_TZ` — pin the gateway and CLI containers to a chosen IANA timezone
+  (e.g. `America/New_York`, `Europe/Berlin`). Without this, containers inherit the
+  daemon default timezone. Useful when running on a VPS with a UTC host but needing
+  cron jobs to fire on local time.
 
 After it finishes:
 
