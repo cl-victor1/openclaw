@@ -93,6 +93,36 @@ Tool params:
 - `sandbox?` (`inherit|require`, default `inherit`; `require` rejects spawn unless target child runtime is sandboxed)
 - `sessions_spawn` does **not** accept channel-delivery params (`target`, `channel`, `to`, `threadId`, `replyTo`, `transport`). For delivery, use `message`/`sessions_send` from the spawned run.
 
+## `sessions_yield`
+
+`sessions_yield` lets an orchestrator **end the current turn immediately** and receive subagent results as the next inbound message, instead of polling or waiting inside the same turn.
+
+Use it after spawning one or more subagents when you want to:
+
+- Release the current model context immediately (lower cost, no long idle wait).
+- Let the gateway deliver subagent completion results as fresh inbound events.
+- Carry a hidden follow-up payload into the next session turn.
+
+Tool params:
+
+- `message` (optional) — a note attached to the yield interrupt, visible in the next turn's context.
+
+Behavior:
+
+- Calling `sessions_yield` ends the current turn and skips any queued tool work.
+- The gateway records the yield interrupt and surfaces it in the next turn as `[Context: The previous turn ended intentionally via sessions_yield while waiting for a follow-up event.]`.
+- The optional `message` is injected into that context note.
+
+Typical pattern:
+
+```
+1. sessions_spawn  → start one or more subagents (non-blocking)
+2. sessions_yield  → end the current turn; wait for results
+3. (next turn)     → receive subagent completion announces; act on results
+```
+
+> **Note**: `sessions_yield` is only supported in contexts where the embedded runner has a session id and an `onYield` handler. In other runtimes it returns an error.
+
 ## Thread-bound sessions
 
 When thread bindings are enabled for a channel, a sub-agent can stay bound to a thread so follow-up user messages in that thread keep routing to the same sub-agent session.
